@@ -1,0 +1,31 @@
+{
+	"name": "oliverthiele/ot-testimonials",
+	"type": "typo3-cms-extension",
+	"description": "Testimonials - Accessible testimonials slider with WCAG 2.1 AA compliance and schema.org structured data.",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Oliver Thiele",
+			"email": "mail@oliver-thiele.de",
+			"homepage": "https://www.oliver-thiele.de",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=8.4",
+		"typo3/cms-core": "^14.3"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-latest"
+	},
+	"autoload": {
+		"psr-4": {
+			"OliverThiele\\OtTestimonials\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "ot_testimonials"
+		}
+	}
+}

@@ -1,0 +1,31 @@
+<div class="ot-testimonials-slide"
+     role="group"
+     aria-label="{f:translate(key: 'slide.label', extensionName: 'ot_testimonials', arguments: {0: '{iteration.index + 1}', 1: '{iteration.total}'})}">
+
+    <blockquote class="ot-testimonials-quote">
+        <div class="ot-testimonials-quote-text">
+            {testimonial.quote -> f:format.html()}
+        </div>
+
+        <footer class="ot-testimonials-author">
+            <f:if condition="{testimonial.companyLogo}">
+                <div class="ot-testimonials-logo">
+                    <f:image image="{testimonial.companyLogo}"
+                             maxWidth="160"
+                             alt="{testimonial.companyName}"
+                             loading="lazy"/>
+                </div>
+            </f:if>
+
+            <cite class="ot-testimonials-cite">
+                <span class="ot-testimonials-author-name">{testimonial.authorName}</span>
+                <f:if condition="{testimonial.authorPosition}">
+                    <span class="ot-testimonials-author-position">{testimonial.authorPosition}</span>
+                </f:if>
+                <f:if condition="{testimonial.companyName}">
+                    <span class="ot-testimonials-company">{testimonial.companyName}</span>
+                </f:if>
+            </cite>
+        </footer>
+    </blockquote>
+</div>

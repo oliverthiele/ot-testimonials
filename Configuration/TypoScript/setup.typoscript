@@ -1,0 +1,26 @@
+plugin.tx_ottestimonials {
+  extensionName = OtTestimonials
+
+  view {
+    # .0 = Bootstrap5 hardcoded fallback (works without any constant definition)
+    # .1 = override via {$sitekit.frameworks.frontend.directory} if defined in project
+    templateRootPaths.0 = EXT:ot_testimonials/Resources/Private/Templates/Bootstrap5/Templates/
+    templateRootPaths.1 = EXT:ot_testimonials/Resources/Private/Templates/{$sitekit.frameworks.frontend.directory}/Templates/
+    partialRootPaths.0  = EXT:ot_testimonials/Resources/Private/Templates/Bootstrap5/Partials/
+    partialRootPaths.1  = EXT:ot_testimonials/Resources/Private/Templates/{$sitekit.frameworks.frontend.directory}/Partials/
+    layoutRootPaths.0   = EXT:ot_testimonials/Resources/Private/Templates/Bootstrap5/Layouts/
+    layoutRootPaths.1   = EXT:ot_testimonials/Resources/Private/Templates/{$sitekit.frameworks.frontend.directory}/Layouts/
+  }
+
+  settings {
+    itemReviewedName = {$otTestimonials.itemReviewedName}
+    interval         = {$otTestimonials.slider.interval}
+    autoplay         = {$otTestimonials.slider.autoplay}
+    indicator        = {$otTestimonials.slider.indicator}
+  }
+}
+
+tt_content.ottestimonials_testimonials.20 < plugin.tx_ottestimonials
+tt_content.ottestimonials_testimonials.20 {
+  pluginName = Testimonials
+}

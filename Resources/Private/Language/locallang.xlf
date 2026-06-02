@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+	<file id="ot-testimonials-locallang" original="EXT:ot_testimonials/Resources/Private/Language/locallang.xlf">
+		<unit id="slider.regionLabel"><segment><source>Customer testimonials</source></segment></unit>
+		<unit id="slider.controlsLabel"><segment><source>Slider controls</source></segment></unit>
+		<unit id="slider.prev"><segment><source>Previous testimonial</source></segment></unit>
+		<unit id="slider.next"><segment><source>Next testimonial</source></segment></unit>
+		<unit id="slider.pause"><segment><source>Pause automatic slideshow</source></segment></unit>
+		<unit id="slider.resume"><segment><source>Resume automatic slideshow</source></segment></unit>
+		<unit id="slide.label"><segment><source>Testimonial {0} of {1}</source></segment></unit>
+		<unit id="indicator.page"><segment><source>Page {0} of {1}</source></segment></unit>
+		<unit id="indicator.current"><segment><source>Current page</source></segment></unit>
+	</file>
+</xliff>

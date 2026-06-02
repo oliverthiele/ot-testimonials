@@ -1,0 +1,4 @@
+elements:
+  - ctype: ottestimonials_testimonials
+    groups: [group_content_wide]
+    grid: { minCols: 12, requiresFullWidth: true }

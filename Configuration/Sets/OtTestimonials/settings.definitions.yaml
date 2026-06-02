@@ -1,0 +1,36 @@
+categories:
+  OtTestimonials:
+  OtTestimonials.slider:
+    parent: OtTestimonials
+  OtTestimonials.structuredData:
+    parent: OtTestimonials
+
+settings:
+
+  # Slider
+
+  otTestimonials.slider.interval:
+    category: OtTestimonials.slider
+    type: int
+    default: 7000
+
+  otTestimonials.slider.autoplay:
+    category: OtTestimonials.slider
+    type: int
+    default: 1
+
+  otTestimonials.slider.indicator:
+    category: OtTestimonials.slider
+    type: string
+    default: 'none'
+    enum:
+      none: 'LLL:EXT:ot_testimonials/Configuration/Sets/OtTestimonials/labels.xlf:settings.otTestimonials.slider.indicator.none'
+      dots: 'LLL:EXT:ot_testimonials/Configuration/Sets/OtTestimonials/labels.xlf:settings.otTestimonials.slider.indicator.dots'
+      counter: 'LLL:EXT:ot_testimonials/Configuration/Sets/OtTestimonials/labels.xlf:settings.otTestimonials.slider.indicator.counter'
+
+  # Structured Data
+
+  otTestimonials.itemReviewedName:
+    category: OtTestimonials.structuredData
+    type: string
+    default: ''
