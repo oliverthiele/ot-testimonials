@@ -1,0 +1,232 @@
+// Testimonials slider — prefix: ot-testimonials-
+// No BEM; state classes: is-paused, is-active
+
+$ot-testimonials-transition-duration: 0.5s;
+$ot-testimonials-btn-size: 2.5rem;
+$ot-testimonials-progress-height: 3px;
+$ot-testimonials-slide-gap: $grid-gutter-width;
+
+.ot-testimonials {
+  // Clips slides that are off-screen — required for the transform-based slider
+  overflow: hidden;
+}
+
+.ot-testimonials-track {
+  display: flex;
+  gap: $ot-testimonials-slide-gap;
+  // position: relative makes slides' offsetLeft relative to this element
+  position: relative;
+  transition: transform $ot-testimonials-transition-duration ease;
+
+  // Applied by JS during resize/breakpoint change to reposition without animation
+  &.no-transition {
+    transition: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.ot-testimonials-slide {
+  // All slides stay in the DOM — overflow: hidden on .ot-testimonials clips them.
+  // aria-hidden="true" hides them from screen readers without display: none,
+  // which would cause layout shift when switching slides.
+  flex: 0 0 100%;
+  min-width: 0;
+
+  @include media-breakpoint-up(lg) {
+    // Two slides per page; gap is split evenly between the two columns
+    flex: 0 0 calc(50% - #{$ot-testimonials-slide-gap * 0.5});
+  }
+}
+
+.ot-testimonials-quote {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ot-testimonials-quote-text {
+  font-size: $font-size-base * 1.05;
+  line-height: 1.6;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-base * 1.1;
+  }
+}
+
+.ot-testimonials-author {
+  display: flex;
+  align-items: center;
+  gap: map-get($spacers, 3);
+  margin-top: map-get($spacers, 3);
+  border-top: 1px solid $border-color;
+  padding-top: map-get($spacers, 3);
+}
+
+.ot-testimonials-logo {
+  flex-shrink: 0;
+
+  img {
+    max-width: 120px;
+    height: auto;
+    display: block;
+  }
+}
+
+.ot-testimonials-cite {
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+  gap: 0.2rem;
+}
+
+.ot-testimonials-author-name {
+  font-weight: $font-weight-bold;
+}
+
+.ot-testimonials-author-position,
+.ot-testimonials-company {
+  color: $secondary;
+  font-size: $font-size-sm;
+}
+
+// Controls
+
+.ot-testimonials-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: map-get($spacers, 2);
+  margin-top: map-get($spacers, 3);
+}
+
+.ot-testimonials-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $ot-testimonials-btn-size;
+  height: $ot-testimonials-btn-size;
+  border-radius: 50%;
+  border: 2px solid $primary;
+  background-color: $primary;
+  color: $white;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color $ot-testimonials-transition-duration ease,
+              border-color $ot-testimonials-transition-duration ease;
+
+  svg {
+    fill: currentColor;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background-color: shade-color($primary, 15%);
+    border-color: shade-color($primary, 15%);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $warning;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// Pause button icon swap: pause icon when playing, play icon when paused
+.ot-testimonials-btn-pause {
+  .ot-testimonials-icon-play {
+    display: none;
+  }
+
+  &[aria-pressed="true"] {
+    .ot-testimonials-icon-pause {
+      display: none;
+    }
+
+    .ot-testimonials-icon-play {
+      display: block;
+    }
+  }
+}
+
+// Indicator
+
+.ot-testimonials-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: map-get($spacers, 2);
+  margin-top: map-get($spacers, 2);
+  min-height: 1.5rem; // Prevents layout shift when dots render
+}
+
+.ot-testimonials-dot {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: $gray-400;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &.is-active {
+    background-color: $primary;
+    transform: scale(1.4);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $warning;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.ot-testimonials-counter {
+  font-size: $font-size-sm;
+  color: $secondary;
+  font-variant-numeric: tabular-nums;
+}
+
+// Progress bar
+
+.ot-testimonials-progress {
+  height: $ot-testimonials-progress-height;
+  background-color: $light;
+  overflow: hidden;
+  margin-top: map-get($spacers, 2);
+}
+
+.ot-testimonials-progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: $primary;
+
+  &.is-active {
+    animation: ot-testimonials-progress var(--ot-testimonials-interval, 7000ms) linear forwards;
+  }
+
+  &.is-paused {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    width: 100%;
+    opacity: 0.4;
+  }
+}
+
+@keyframes ot-testimonials-progress {
+  from { width: 0; }
+  to   { width: 100%; }
+}
