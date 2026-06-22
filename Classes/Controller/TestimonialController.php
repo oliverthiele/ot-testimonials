@@ -14,7 +14,8 @@ class TestimonialController extends ActionController
 {
     public function __construct(
         private readonly TestimonialRepository $testimonialRepository,
-    ) {}
+    ) {
+    }
 
     public function listAction(): ResponseInterface
     {
