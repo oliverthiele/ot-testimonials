@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] — 2026-07-28
+
+Maintenance release — no functional changes.
+
+### Changed
+
+- Apply PSR-12 brace formatting to the constructor
+- Indent the XLIFF files with two spaces instead of tabs, following the
+  `.editorconfig` inherited from the project root. Content is unchanged
+
+---
+
 ## [1.0.0] — 2026-06-02
 
 ### Initial release
