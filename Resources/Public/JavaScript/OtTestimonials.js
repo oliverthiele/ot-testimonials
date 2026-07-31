@@ -181,7 +181,9 @@
 
       const pageCount = this.#getPageCount();
       const currentPage = this.#getCurrentPage();
-      const labelPage = this.#element.dataset.labelPage || 'Page {0} of {1}';
+      // Placeholders follow the TYPO3 XLIFF convention (%1$s, %2$s) and are
+      // substituted here because the page count is only known client-side.
+      const labelPage = this.#element.dataset.labelPage || 'Page %1$s of %2$s';
       const labelCurrent = this.#element.dataset.labelCurrent || 'Current page';
 
       this.#indicator.innerHTML = '';
@@ -193,12 +195,12 @@
           button.className = 'ot-testimonials-dot' + (i === currentPage ? ' is-active' : '');
           button.setAttribute(
             'aria-label',
-            labelPage.replace('{0}', i + 1).replace('{1}', pageCount)
+            labelPage.replace('%1$s', i + 1).replace('%2$s', pageCount)
           );
           if (i === currentPage) {
             button.setAttribute('aria-current', 'true');
             button.setAttribute('aria-label',
-              labelCurrent + ' — ' + labelPage.replace('{0}', i + 1).replace('{1}', pageCount)
+              labelCurrent + ' — ' + labelPage.replace('%1$s', i + 1).replace('%2$s', pageCount)
             );
           }
           button.addEventListener('click', () => {
