@@ -7,8 +7,8 @@
     <unit id="slider.next"><segment><source>Next testimonial</source><target>Nächste Kundenstimme</target></segment></unit>
     <unit id="slider.pause"><segment><source>Pause automatic slideshow</source><target>Automatische Diashow pausieren</target></segment></unit>
     <unit id="slider.resume"><segment><source>Resume automatic slideshow</source><target>Automatische Diashow fortsetzen</target></segment></unit>
-    <unit id="slide.label"><segment><source>Testimonial {0} of {1}</source><target>Kundenstimme {0} von {1}</target></segment></unit>
-    <unit id="indicator.page"><segment><source>Page {0} of {1}</source><target>Seite {0} von {1}</target></segment></unit>
+    <unit id="slide.label"><segment><source>Testimonial %1$s of %2$s</source><target>Kundenstimme %1$s von %2$s</target></segment></unit>
+    <unit id="indicator.page"><segment><source>Page %1$s of %2$s</source><target>Seite %1$s von %2$s</target></segment></unit>
     <unit id="indicator.current"><segment><source>Current page</source><target>Aktuelle Seite</target></segment></unit>
   </file>
 </xliff>

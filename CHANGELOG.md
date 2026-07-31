@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.2] — 2026-07-31
+
+### Fixed
+
+- The `slide.label` placeholders were written as `{0}` / `{1}`, which TYPO3 does
+  not substitute. Every slide therefore carried the literal
+  `aria-label="Testimonial {0} of {1}"`, leaving screen reader users without a
+  position in the slider. Both keys now use the TYPO3 convention `%1$s` / `%2$s`
+- `indicator.page` used the same non-substitutable placeholders. It is resolved
+  client-side, so the replacement in `OtTestimonials.js` was adjusted to match
+- The company logo was sized by width only (`max-width` + `height: auto`), so it
+  fell back to whatever intrinsic size the file reported. An SVG whose FAL
+  metadata holds unusable dimensions rendered a few pixels tall, and `max-width`
+  cannot scale it back up. Logos are now sized by height with `width: auto`,
+  which is independent of the stored dimensions and handles differing aspect
+  ratios
+
+---
+
 ## [1.0.1] — 2026-07-28
 
 Maintenance release — no functional changes.
