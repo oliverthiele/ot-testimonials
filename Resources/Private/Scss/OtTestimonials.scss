@@ -69,8 +69,13 @@ $ot-testimonials-slide-gap: $grid-gutter-width;
   flex-shrink: 0;
 
   img {
+    // Sized by height, not width: company logos differ in aspect ratio, and an
+    // SVG carrying no or unusable intrinsic dimensions would otherwise render
+    // at whatever width the FAL metadata claims.
+    height: 2.5rem;
+    width: auto;
     max-width: 120px;
-    height: auto;
+    object-fit: contain;
     display: block;
   }
 }
