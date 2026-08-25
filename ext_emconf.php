@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ot_testimonials'] = [
     'title' => 'Testimonials',
     'description' => 'Accessible testimonials slider with WCAG 2.1 AA compliance and schema.org structured data.',
     'category' => 'plugin',
