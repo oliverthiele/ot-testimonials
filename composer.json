@@ -25,7 +25,11 @@
 	},
 	"extra": {
 		"typo3/cms": {
-			"extension-key": "ot_testimonials"
+			"extension-key": "ot_testimonials",
+			"version": "1.0.2",
+			"Package": {
+				"providesPackages": {}
+			}
 		}
 	}
 }
